@@ -1,0 +1,23 @@
+#
+# 운영서버 /etc/mysql/mariadb.conf.d/50-server.cnf 기준
+# 활성화된 설정만 명시 (주석처리된 항목 = MariaDB 기본값 사용)
+#
+
+[server]
+
+[mysqld]
+# 운영서버와 동일한 문자셋
+character-set-server  = utf8mb4
+collation-server      = utf8mb4_general_ci
+
+# 타임존
+default_time_zone     = Asia/Seoul
+
+# 바이너리 로그 보관 기간
+expire_logs_days      = 10
+
+[embedded]
+
+[mariadb]
+
+[mariadb-10.11]
