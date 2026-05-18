@@ -70,6 +70,8 @@ services:
       - ../choharu:/var/www/choharu
       - ../choharu2:/var/www/choharu2
       - ./php74/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    environment:
+      APP_ENV: local
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
@@ -99,3 +101,11 @@ services:
 volumes:
   mariadb_data:
     driver: local
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+          gateway: 172.30.0.1

@@ -25,3 +25,6 @@ COPY php-custom.ini /usr/local/etc/php/conf.d/99-custom.ini
 
 # Apache 기본 설정: ServerName 경고 제거
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Xdebug 로그 파일 생성 및 권한 설정 (www-data 쓰기 가능)
+RUN touch /tmp/xdebug.log && chmod 666 /tmp/xdebug.log
